@@ -49,7 +49,8 @@ Python (use 3.10 for guaranteed result) (make sure to install pip)
 
 1. Make sure your settings look like this currently:
 
-   ![TOTAL_SETTINGS_OVERVIEW](https://i.imgur.com/hQIsSnk.png) (and don't forget your jailbreak, lol)
+   ![TOTAL_SETTINGS_OVERVIEW](https://i.imgur.com/hQIsSnk.png)
+   (and don't forget your jailbreak, lol)
 
 ## Check Proxy
 

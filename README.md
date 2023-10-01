@@ -1,5 +1,11 @@
 # GPT generation client for AI sites
 
+## Brief introduction
+
+This application uses LLM wrappers but uses Flask to host the LLM locally and make it usable within other AI sites.
+
+I do not condone acts which go against the LLM provider's TOS.
+
 ## Supported Sites:
 
 [Venus Chub AI](https://venus.chub.ai)

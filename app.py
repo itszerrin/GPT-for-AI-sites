@@ -90,12 +90,12 @@ def root():
 
         # if yes, return the models
         #KEY_VALID = True
-        #return jsonify({"data": [{"id": "gpt-3.5-turbo"}, {"id": "gpt-4-0613"}, {"id": "llama13b-v2-chat"}, {"id": "llama7b-v2-chat"}, {"id": "claude-v2"}, {"id": "claude-instant-v1"}]}), 200
+    return jsonify({"data": [{"id": "gpt-3.5-turbo"}, {"id": "gpt-4-0613"}, {"id": "llama13b-v2-chat"}, {"id": "llama7b-v2-chat"}, {"id": "claude-v2"}, {"id": "claude-instant-v1"}]}), 200
     
     #else:
 
         #KEY_VALID = False
-    return jsonify({"status": False, "error": "Invalid API key entered"}), 403
+    #return jsonify({"status": False, "error": "Invalid API key entered"}), 403
 
 # run the code and host the server lol
 if __name__ == "__main__":

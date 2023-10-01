@@ -2,3 +2,4 @@ g4f
 flask
 asyncio
 flask_cors
+tiktoken

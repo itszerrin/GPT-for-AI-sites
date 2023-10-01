@@ -64,7 +64,7 @@ Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 
 4. I have no influence over the ``g4f`` module and any errors that occur from it are unfixable by me.
 
-5. ``GPT-4`` says it's ``GPT-3.5``/based off of ``GPT-3.5``? Yes, it's a common bug in the OpenAI APi. [GPT_BUG_REFERENCE_LINK](https://community.openai.com/t/gpt-4-through-api-says-its-gpt-3/286881)
+5. ``GPT-4`` says it's ``GPT-3.5``/based off of ``GPT-3.5``? Yes, it's a common bug in the OpenAI APi. [OpenAI forums thread](https://community.openai.com/t/gpt-4-through-api-says-its-gpt-3/286881)
 
 ## Copyright
 

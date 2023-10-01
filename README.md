@@ -2,12 +2,12 @@
 
 ## Supported Sites:
 
-[Venus Chub AI](venus.chub.ai)
+[Venus Chub AI](https://venus.chub.ai)
 
 ## About other sites:
 
-- [JanitorAI](janitorai.com) only seems to work partially. it's success is never guaranteed. There seem to be issues with authorization, might rework soon.
-- [Harpy Chat](harpy.chat) Does NOT work at all. There seems to be a completely unfamiliar error occuring during generation on their end and not mine.
+- [JanitorAI](https://janitorai.com) only seems to work partially. it's success is never guaranteed. There seem to be issues with authorization, might rework soon.
+- [Harpy Chat](https://harpy.chat) Does NOT work at all. There seems to be a completely unfamiliar error occuring during generation on their end and not mine.
 
 ## Prerequisites
 
@@ -26,6 +26,34 @@ Python (use 3.10 for guaranteed result) (make sure to install pip)
    
    ![CMD_SUCCESS](https://i.imgur.com/kqCpct9.jpg)
 3. Copy that URL (it's a local URl, don't worry, it's only accessible from devices in the same network and isn't public)
-4. Insert that URL to the AI site ([Venus Chub AI for reference](venus.chub.ai))
+4. Insert that URL to the AI site ([Venus Chub AI](https://venus.chub.ai) for reference)
 
    ![INSERT_URL_TO_BAR](https://i.imgur.com/o1qjELe.png)
+
+## Getting the auth code
+
+1. Head to the ``settings`` folder.
+2. Double click ``auth.json`` and open it in any text editor. It should look like this (using notepad.exe)
+
+   ![AUTH_JSON_OPENED](https://i.imgur.com/K6VEqbN.png)
+
+3. Copy the contents of the quotes. You should have ``NMPH-874631259`` as your code.
+
+## Inserting the code
+
+1. Insert the code into the box. It should look like this:
+
+   ![CODE_ENTERED_VENUS_AI](https://i.imgur.com/gY73YL0.png)
+
+## Verify 
+
+1. Make sure your settings look like this currently:
+
+   ![TOTAL_SETTINGS_OVERVIEW](https://i.imgur.com/hQIsSnk.png) (and don't forget your jailbreak, lol)
+
+## Check Proxy
+
+1. If your settings look alike, press the ``"Check Proxy"`` button. ![CHECK_PROXY_BUTTON](https://i.imgur.com/7L2KqfN.jpg)
+
+2. If everything worked, you should get a green checkmark. ![GREEN_CHECKMARK](https://i.imgur.com/RPlhFQZ.png)
+   

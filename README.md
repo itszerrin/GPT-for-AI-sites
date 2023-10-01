@@ -67,4 +67,31 @@ Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 ## Finalize
 
 1. Once you've chosen a model, scroll down and press ``Save Settings`` ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
+
+
+## Some more information
+
+1. This does not support **Venus Chub's** impersonation feature.
+
+2. Due to limitations of the module, you cannot customize the model. (``max_tokens`` is always the same, ``temperature`` is always same and unchangeable)
+
+3. I have no influence over the ``g4f`` module and any errors that occur from it are unfixable by me.
+
+## Copyright
+
+Recentaly/GPT-for-AI-sites: A hosted wrapper for AI sites.
+Copyright (C) 2023 Recentaly
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
    

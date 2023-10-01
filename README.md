@@ -16,8 +16,9 @@ Python (use 3.10 for guaranteed result) (make sure to install pip)
 ## Installation of Modules
 
 1. opena a new cmd window
-2. for the first module type: ``pip install g4f`` 
+2. Set the current directory to the root of the folder. Comamnd: ```cd "path_to_folder```
+3. type ```pip install -r requirements.txt``` this will install all neccessary modules for you automatically.
 
-## Setup
+## Running the server
 
-1. Download the zip file (source code)
+1. After the modules are installed, double click the ```bash app.py```python 

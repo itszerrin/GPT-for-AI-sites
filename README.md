@@ -11,7 +11,7 @@
 
 ## Prerequisites
 
-Python (use 3.10 for guaranteed result) (make sure to install pip)
+Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 
 ## Installation of Modules
 
@@ -57,4 +57,14 @@ Python (use 3.10 for guaranteed result) (make sure to install pip)
 1. If your settings look alike, press the ``"Check Proxy"`` button. ![CHECK_PROXY_BUTTON](https://i.imgur.com/7L2KqfN.jpg)
 
 2. If everything worked, you should get a green checkmark. ![GREEN_CHECKMARK](https://i.imgur.com/RPlhFQZ.png)
+
+## Choosing a model
+
+1. Thanks to the [g4f module](https://github.com/xtekky/gpt4free), you can use ``gpt-3.5-turbo`` and ``gpt-4-0613`` for ***free.***
+
+2. Select either ``gpt-3.5-turbo`` or ``gpt-4-0613`` from the list: ![CHOOSE_MODEL_GPT](https://i.imgur.com/OyWPJP9.png)
+
+## Finalize
+
+1. Once you've chosen a model, scroll down and press ``Save Settings`` ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
    

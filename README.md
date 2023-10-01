@@ -67,6 +67,8 @@ Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 5. ``GPT-4`` says it's ``GPT-3.5``/based off of ``GPT-3.5``? Yes, it's a common bug in the OpenAI API. [OpenAI forums thread](https://community.openai.com/t/gpt-4-through-api-says-its-gpt-3/286881)
    Don't worry, it's still ``GPT-4``, lol.
 
+6. The ``Chat Memory`` function does not seem to work at the moment.
+
 ## Copyright
 
 Recentaly/GPT-for-AI-sites: A hosted wrapper for AI sites.

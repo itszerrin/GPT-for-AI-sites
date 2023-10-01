@@ -37,28 +37,6 @@ Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 
    ![INSERT_URL_TO_BAR](https://i.imgur.com/o1qjELe.png)
 
-## Getting the auth code
-
-1. Head to the ``settings`` folder.
-2. Double click ``auth.json`` and open it in any text editor. It should look like this (using notepad.exe)
-
-   ![AUTH_JSON_OPENED](https://i.imgur.com/K6VEqbN.png)
-
-3. Copy the contents of the quotes. You should have ``NMPH-874631259`` as your code.
-
-## Inserting the code
-
-1. Insert the code into the box. It should look like this:
-
-   ![CODE_ENTERED_VENUS_AI](https://i.imgur.com/gY73YL0.png)
-
-## Verify 
-
-1. Make sure your settings look like this currently:
-
-   ![TOTAL_SETTINGS_OVERVIEW](https://i.imgur.com/hQIsSnk.png)
-   (and don't forget your jailbreak, lol)
-
 ## Check Proxy
 
 1. If your settings look alike, press the ``"Check Proxy"`` button. ![CHECK_PROXY_BUTTON](https://i.imgur.com/7L2KqfN.jpg)
@@ -80,9 +58,11 @@ Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 
 1. This does not support **Venus Chub's** impersonation feature.
 
-2. Due to limitations of the module, you cannot customize the model. (``max_tokens`` is always the same, ``temperature`` is always same and unchangeable)
+2. This supports **Venus Chub's** group chat feature.
 
-3. I have no influence over the ``g4f`` module and any errors that occur from it are unfixable by me.
+3. Due to limitations of the module, you cannot customize the model. (``max_tokens`` is always the same, ``temperature`` is always same and unchangeable)
+
+4. I have no influence over the ``g4f`` module and any errors that occur from it are unfixable by me.
 
 ## Copyright
 

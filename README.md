@@ -1,6 +1,6 @@
 # GPT generation client for AI sites
 
-Supported Sites:
+## Supported Sites:
 
 [Venus Chub AI](venus.chub.ai)
 

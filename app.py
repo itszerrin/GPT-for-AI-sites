@@ -6,9 +6,6 @@ from tiktoken import get_encoding # to count tokens
 # import the ai's chattign module
 from modules.chat import chat_gen as generate
 
-# load the auth checker (check if key is correct)
-from settings.check_auth import check
-
 # ai settings
 MODEL = "gpt-3.5-turbo" # defaaaaault
 TEMPERATURE = 1 # default setting

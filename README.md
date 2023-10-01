@@ -21,5 +21,6 @@ Python (use 3.10 for guaranteed result) (make sure to install pip)
 
 ## Running the server
 
-1. After the modules are installed, double click the ```bash
-   app.py``` file.
+1. After the modules are installed, double click the ```app.py``` file.
+2. The cmd should look something like this if everything works:
+   ![CMD_SUCCESS](https://pasteboard.co/lfFdYJ600KVA.png)

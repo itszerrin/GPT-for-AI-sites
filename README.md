@@ -20,11 +20,11 @@ I do not condone acts which go against the LLM provider's TOS.
 
 Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
 
+Have unzipped the directory to a folder
+
 ## Installation of Modules
 
-1. Open a new cmd window
-2. Set the current directory to the root of the folder. Comamnd: ```cd "path_to_folder"```
-3. type ```pip install -r requirements.txt``` this will install all neccessary modules for you automatically.
+1. Run the ``install_requirements.bat`` file. This will auto-install everything for you.
 
 ## Running the server
 

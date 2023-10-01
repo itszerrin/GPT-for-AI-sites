@@ -23,4 +23,4 @@ Python (use 3.10 for guaranteed result) (make sure to install pip)
 
 1. After the modules are installed, double click the ```app.py``` file.
 2. The cmd should look something like this if everything works:
-   ![CMD_SUCCESS](https://imgur.com/a/IzIIqUP)
+   ![CMD_SUCCESS](https://i.imgur.com/a/IzIIqUP.png)

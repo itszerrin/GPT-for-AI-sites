@@ -19,7 +19,6 @@ messages: list = [
 ]
 
 # Configuration
-KEY_VALID: bool = False
 SERVER_PORT = 3000
 DEBUG = False
 HOST = '0.0.0.0'
@@ -35,9 +34,9 @@ async def chat():
     global messages, KEY_VALID, TEMPERATURE, MODEL
 
     # immediately check if the entered key isn't even valid
-    if not KEY_VALID:
+    #if not KEY_VALID:
 
-        return jsonify({"status": False, "error": "Your API key was incorrect! Enter a valid key!", "type": "Invalid API key"}), 403
+        #return jsonify({"status": False, "error": "Your API key was incorrect! Enter a valid key!", "type": "Invalid API key"}), 403
     
     # or else we just continue lol
     request_data = request.get_json()
@@ -83,22 +82,20 @@ async def chat():
 @app.route("/models")
 def root():
 
-    global KEY_VALID
-
     # get the key the user provided
-    authorization_key = request.headers.get("Authorization").replace("Bearer ", "")
+    #authorization_key = request.headers.get("Authorization").replace("Bearer ", "")
 
     # use the authorization checker file to check if the entered keys is true
-    if check("settings\\auth.json", authorization_key):
+    #if check("settings\\auth.json", authorization_key):
 
         # if yes, return the models
-        KEY_VALID = True
-        return jsonify({"data": [{"id": "gpt-3.5-turbo"}, {"id": "gpt-4-0613"}, {"id": "llama13b-v2-chat"}, {"id": "llama7b-v2-chat"}, {"id": "claude-v2"}, {"id": "claude-instant-v1"}]}), 200
+        #KEY_VALID = True
+        #return jsonify({"data": [{"id": "gpt-3.5-turbo"}, {"id": "gpt-4-0613"}, {"id": "llama13b-v2-chat"}, {"id": "llama7b-v2-chat"}, {"id": "claude-v2"}, {"id": "claude-instant-v1"}]}), 200
     
-    else:
+    #else:
 
-        KEY_VALID = False
-        return jsonify({"status": False, "error": "Invalid API key entered"}), 403
+        #KEY_VALID = False
+    return jsonify({"status": False, "error": "Invalid API key entered"}), 403
 
 # run the code and host the server lol
 if __name__ == "__main__":

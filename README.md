@@ -24,7 +24,7 @@ Have unzipped the directory to a folder
 
 ## Installation of Modules
 
-1. Run the ``install_requirements.bat`` file. This will auto-install everything for you.
+1. Run the ``install_requirements.bat`` file. This will auto-install everything for you. (simply double-click it)
 
 ## Running the server
 

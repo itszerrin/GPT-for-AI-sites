@@ -10,9 +10,10 @@ I do not condone acts which go against the LLM provider's TOS.
 
 [Venus Chub AI](https://venus.chub.ai)
 
+[JanitorAI](https://janitorai.com) Due to the site's way it was coded, please only select gpt-3.5-turbo or else an error will occur. 
+
 ## About other sites:
 
-- [JanitorAI](https://janitorai.com) only seems to work partially. it's success is never guaranteed. There seem to be issues with authorization, might rework soon.
 - [Harpy Chat](https://harpy.chat) Does NOT work at all. There seems to be a completely unfamiliar error occuring during generation on their end and not mine.
 
 ## Prerequisites

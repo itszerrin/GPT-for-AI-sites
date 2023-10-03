@@ -27,6 +27,7 @@ Have unzipped the directory to a folder
 1. Run the ``install_requirements.bat`` file. This will auto-install everything for you. (simply double-click it)
 
 2. Alternatively, open ``cmd.exe`` in the directory where all the files are and write ``pip install -r requirements.txt``
+   
    ![INSTALL_MODULES_CMD](https://i.imgur.com/HiIIOQN.jpg)
 
 ## Running the server

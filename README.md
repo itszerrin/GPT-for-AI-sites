@@ -46,7 +46,9 @@ Have unzipped the directory to a folder
 
 1. If your settings look alike, press the ``"Check Proxy"`` button. ![CHECK_PROXY_BUTTON](https://i.imgur.com/7L2KqfN.jpg)
 
-2. If everything worked, you should get a green checkmark. ![GREEN_CHECKMARK](https://i.imgur.com/RPlhFQZ.png)
+2. If everything worked, you should get a green checkmark.
+
+ ![GREEN_CHECKMARK](https://i.imgur.com/RPlhFQZ.png)
 
 ## Choosing a model
 

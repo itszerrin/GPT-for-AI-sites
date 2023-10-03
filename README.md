@@ -10,7 +10,7 @@ I do not condone acts which go against the LLM provider's TOS.
 
 [Venus Chub AI](https://venus.chub.ai)
 
-[JanitorAI](https://janitorai.com) Due to the site's way it was coded, please only select gpt-3.5-turbo or else an error will occur. 
+[JanitorAI](https://janitorai.com) 
 
 ## About other sites:
 
@@ -18,13 +18,16 @@ I do not condone acts which go against the LLM provider's TOS.
 
 ## Prerequisites
 
-Python (use 3.10 for guaranteed result) (make sure to install pip alongside)
+Python (**ONLY >=3.10 SUPPORTED**)
 
 Have unzipped the directory to a folder
 
 ## Installation of Modules
 
 1. Run the ``install_requirements.bat`` file. This will auto-install everything for you. (simply double-click it)
+
+2. Alternatively, open ``cmd.exe`` in the directory where all the files are and write ``pip install -r requirements.txt``
+   ![INSTALL_MODULES_CMD](https://i.imgur.com/HiIIOQN.jpg)
 
 ## Running the server
 

@@ -50,7 +50,7 @@ Have unzipped the directory to a folder
 
 ## Choosing a model
 
-1. Thanks to the [vercel_ai module](https://github.com/ading2210/vercel-llm-api), you can use ``gpt-3.5-turbo`` and ``gpt-4-0613`` for ***free.***
+1. Thanks to the [vercel_ai module](https://github.com/ading2210/vercel-llm-api), you may use any model for ***free.***
 
 2. Select either model from the list: ![CHOOSE_MODEL_GPT](https://i.imgur.com/ePKD0lR.png)
 

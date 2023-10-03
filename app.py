@@ -10,10 +10,6 @@ from modules.chat import chat_gen as generate
 # create an Ai client
 client = newClient(proxy=None)
 
-# configure the AI
-client.model_defaults["openai:gpt-3.5-turbo"]["maximumLength"] = 1000
-client.models["openai:gpt-3.5-turbo"]["parameters"]["maximumLength"]["value"] = 1000
-
 # ai settings and a bunch of default variables
 MODEL = "replicate:replicate/llama-2-70b-chat" 
 TEMPERATURE = 1 
@@ -38,7 +34,7 @@ CORS(app) # handle CORS
 @app.route("/chat/completions", methods=["POST"])
 async def chat():
 
-    global messages, TEMPERATURE, MODEL
+    global messages, TEMPERATURE, MODEL, FREQUENCY_PENALTY, PRESENCE_PENALTY, MAX_TOKENS
     
     # or else we just continue lol
     request_data = request.get_json()

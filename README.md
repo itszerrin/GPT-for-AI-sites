@@ -58,6 +58,17 @@ Have unzipped the directory to a folder
 
 1. Once you've chosen a model, scroll down and press ``Save Settings`` ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
 
+## Additionally
+
+1. Head over to the ``Generation Settings``
+
+2. Scrolling to ``Max new token``, please select ``255 as the limit``
+
+   ![TOKEN_LIMIT_SETTINGS_IMG](https://i.imgur.com/UHzwGNQ.png)
+
+(**Due to limitations, the hard limit is at 255 tokens anyways. Please select anyways to kind-of prevent cut-offs**)
+
+
 
 ## Some more information
 

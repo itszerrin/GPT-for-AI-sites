@@ -3,12 +3,23 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from tiktoken import get_encoding # to count tokens
 
-# import the ai's chattign module
+# import the ai's chatting modules
+from modules.client import newClient
 from modules.chat import chat_gen as generate
 
-# ai settings
-MODEL = "gpt-3.5-turbo" # defaaaaault
-TEMPERATURE = 1 # default setting
+# create an Ai client
+client = newClient(proxy=None)
+
+# configure the AI
+client.model_defaults["openai:gpt-3.5-turbo"]["maximumLength"] = 1000
+client.models["openai:gpt-3.5-turbo"]["parameters"]["maximumLength"]["value"] = 1000
+
+# ai settings and a bunch of default variables
+MODEL = "replicate:replicate/llama-2-70b-chat" 
+TEMPERATURE = 1 
+FREQUENCY_PENALTY = 0.85
+PRESENCE_PENALTY = 0.85
+MAX_TOKENS = 1000
 
 # list the list of messages to track the conversation (it's empty at the beginning)
 messages: list = [
@@ -24,16 +35,10 @@ HOST = '0.0.0.0'
 app = Flask(__name__)
 CORS(app) # handle CORS
 
-
 @app.route("/chat/completions", methods=["POST"])
 async def chat():
 
-    global messages, KEY_VALID, TEMPERATURE, MODEL
-
-    # immediately check if the entered key isn't even valid
-    #if not KEY_VALID:
-
-        #return jsonify({"status": False, "error": "Your API key was incorrect! Enter a valid key!", "type": "Invalid API key"}), 403
+    global messages, TEMPERATURE, MODEL
     
     # or else we just continue lol
     request_data = request.get_json()
@@ -52,13 +57,15 @@ async def chat():
     # count input tokens (what user wrote)
     input_tokens: int = len(encoding.encode(messages[-1]["content"]))
 
-    # copy the temperature (which can change at each generation)
+    # get new versions of each parameter (they might change at each prompt, lol)
     TEMPERATURE = request_data.get('temperature', None)
     MODEL = request_data.get('model', None)
+    FREQUENCY_PENALTY = request_data.get('frequency_penalty', None)
+    PRESENCE_PENALTY = request_data.get('presence_penalty', None)
+    MAX_TOKENS = request_data.get('max_tokens', None)
 
     # generate a response
-    #api_gen = generate(client, messages, params={"temperature": TEMPERATURE}) ! DEPRACATED !
-    api_gen = generate(messages, model=MODEL)
+    api_gen = generate(client, messages, params={"temperature": TEMPERATURE, "maximumLength": MAX_TOKENS, "max_tokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
 
     # count output tokens
     output_tokens: int = len(encoding.encode(messages[-1]["content"]))
@@ -79,20 +86,24 @@ async def chat():
 @app.route("/models")
 def root():
 
-    # get the key the user provided
-    #authorization_key = request.headers.get("Authorization").replace("Bearer ", "")
-
-    # use the authorization checker file to check if the entered keys is true
-    #if check("settings\\auth.json", authorization_key):
-
-        # if yes, return the models
-        #KEY_VALID = True
-    return jsonify({"data": [{"id": "gpt-3.5-turbo"}, {"id": "gpt-4-0613"}, {"id": "llama13b-v2-chat"}, {"id": "llama7b-v2-chat"}, {"id": "claude-v2"}, {"id": "claude-instant-v1"}]}), 200
-    
-    #else:
-
-        #KEY_VALID = False
-    #return jsonify({"status": False, "error": "Invalid API key entered"}), 403
+    # return a list of our models
+    return jsonify(
+    {"data": [
+        {"id": "openai:gpt-3.5-turbo"},
+        {"id": "openai:gpt-3.5-turbo-16k-0613"},
+        {"id": "openai:gpt-3.5-turbo-16k"},
+        {"id": "cohere:command-nightly"}, 
+        {"id": "huggingface:bigcode/santacoder"}, 
+        {"id": "huggingface:OpenAssistant/oasst-sft-1-pythia-12b"}, 
+        {"id": "huggingface:OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5"}, 
+        {"id": "huggingface:EleutherAI/gpt-neox-20b"},
+        {"id": "replicate:a16z-infra/llama7b-v2-chat"},
+        {"id": "replicate:a16z-infra/llama13b-v2-chat"},
+        {"id": "replicate:replicate/llama-2-70b-chat"},
+        {"id": "huggingface:bigscience/bloom"},
+        {"id": "openai:text-davinci-003"},
+        {"id": "huggingface:google/flan-t5-xxl"},
+    ]}), 200
 
 # run the code and host the server lol
 if __name__ == "__main__":

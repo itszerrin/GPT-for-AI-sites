@@ -66,7 +66,7 @@ Have unzipped the directory to a folder
 
 1. Head over to the ``Generation Settings``
 
-2. Scrolling to ``Max new token``, please select ``255 as the limit``
+2. Scrolling to ``Max new token``, please select ``255`` as the limit.
 
    ![TOKEN_LIMIT_SETTINGS_IMG](https://i.imgur.com/UHzwGNQ.png)
 

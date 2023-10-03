@@ -58,7 +58,9 @@ Have unzipped the directory to a folder
 
 ## Finalize
 
-1. Once you've chosen a model, scroll down and press ``Save Settings`` ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
+1. Once you've chosen a model, scroll down and press ``Save Settings``
+
+ ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
 
 ## Additionally
 

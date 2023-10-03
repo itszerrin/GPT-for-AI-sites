@@ -11,7 +11,7 @@ from modules.chat import chat_gen as generate
 client = newClient(proxy=None)
 
 # ai settings and a bunch of default variables
-MODEL = "replicate:replicate/llama-2-70b-chat" 
+MODEL = "openai:gpt-3.5-turbo" 
 TEMPERATURE = 1 
 FREQUENCY_PENALTY = 0.85
 PRESENCE_PENALTY = 0.85

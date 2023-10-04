@@ -1,11 +1,13 @@
-Disclaimer:
+This repository is independent of and not endorsed by the providers of the APIs featured herein on GitHub.
 
-This Flask application is provided for educational and entertainment purposes only. It is not intended to promote or endorse any form of piracy, including the use of third-party modules, LLM hosts, or any other copyrighted materials.
+Please take note of the following:
 
-The developer of this Flask app does not claim ownership of any third-party modules or LLM hosts used within the application. The use of third-party modules, including those licensed under the GNU General Public License (GNU GPL), is subject to the terms and conditions specified by their respective licenses. Users of this Flask app should review and comply with the applicable license agreements when using third-party modules.
+    Disclaimer: The APIs, services, and trademarks mentioned in this repository are the property of their respective owners. This project makes no claims to ownership or affiliation with any of the mentioned providers.
 
-This Flask app is not affiliated with, sponsored by, or endorsed by any specific third-party module or LLM host. It is a small "for fun" program designed for experimentation and educational purposes. Users are responsible for ensuring their compliance with all applicable laws and regulations when using this application.
+    Liability: The creator of this repository disclaims any responsibility for consequences, damages, or losses resulting from the use or misuse of this repository or the content derived from third-party APIs. Users bear sole responsibility for their actions and any subsequent repercussions. It is highly recommended that users adhere to each website's Terms of Service.
 
-The developer of this Flask app disclaims any responsibility for the misuse or unauthorized use of third-party modules, LLM hosts, or any other software components. Users are encouraged to use this application responsibly and respect intellectual property rights.
+    Educational Use Only: This repository and its contents are strictly meant for educational purposes. Users utilizing the information and code provided acknowledge that they are doing so at their own risk and commit to complying with all applicable laws and regulations governing API usage.
 
-By using this Flask app, you acknowledge and agree to the terms and conditions outlined in this disclaimer. If you do not agree with these terms, please refrain from using this application.
+    Indemnification: Users agree to indemnify, defend, and hold the repository author harmless from any claims, liabilities, damages, losses, or expenses, including legal fees and costs, arising from their use or misuse of this repository, its content, or related third-party APIs.
+
+    Updates and Revisions: The repository author retains the right to modify, update, or remove any content, information, or features within this repository at any time without prior notification. Users are responsible for regularly reviewing the content and any alterations made to this repository.

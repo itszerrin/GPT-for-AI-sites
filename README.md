@@ -62,31 +62,15 @@ Have unzipped the directory to a folder
 
  ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
 
-## Additionally
-
-1. Head over to the ``Generation Settings``
-
-2. Scrolling to ``Max new token``, please select ``255`` as the limit.
-
-   ![TOKEN_LIMIT_SETTINGS_IMG](https://i.imgur.com/UHzwGNQ.png)
-
-(**Due to limitations, the hard limit is at 255 tokens anyways. Please select anyways to kind-of prevent cut-offs**)
-
-
-
 ## Some more information
 
 1. This does only **partially** support the Impersonation feature
 
 2. This supports **Venus Chub's** group chat feature.
 
-3. You can customize every setting except for ``max_tokens``
+3. I have no influence over the ``vercel_ai`` module and any errors that occur from it are unfixable by me.
 
-4. Due to limitations, ``max_tokens`` is **always** 255 tokens.
-
-5. I have no influence over the ``vercel_ai`` module and any errors that occur from it are unfixable by me.
-
-7. The ``Chat Memory`` function does not seem to work at the moment.
+4. The ``Chat Memory`` function does not seem to work at the moment.
 
 ## Copyright
 

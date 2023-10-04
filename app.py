@@ -7,15 +7,12 @@ from tiktoken import get_encoding # to count tokens
 from modules.client import newClient
 from modules.chat import chat_gen as generate
 
-# create an Ai client
-client = newClient(proxy=None)
-
 # ai settings and a bunch of default variables
 MODEL = "openai:gpt-3.5-turbo" 
 TEMPERATURE = 1 
 FREQUENCY_PENALTY = 0.85
 PRESENCE_PENALTY = 0.85
-MAX_TOKENS = 1000
+MAX_TOKENS = 600
 
 # list the list of messages to track the conversation (it's empty at the beginning)
 messages: list = [
@@ -34,7 +31,10 @@ CORS(app) # handle CORS
 @app.route("/chat/completions", methods=["POST"])
 async def chat():
 
-    global messages, TEMPERATURE, MODEL, FREQUENCY_PENALTY, PRESENCE_PENALTY, MAX_TOKENS
+    global messages, TEMPERATURE, MODEL
+
+    # create a new random client
+    client = newClient()
     
     # or else we just continue lol
     request_data = request.get_json()
@@ -61,7 +61,7 @@ async def chat():
     MAX_TOKENS = request_data.get('max_tokens', None)
 
     # generate a response
-    api_gen = generate(client, messages, params={"temperature": TEMPERATURE, "maximumLength": MAX_TOKENS, "max_tokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
+    api_gen = generate(client, messages, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
 
     # count output tokens
     output_tokens: int = len(encoding.encode(messages[-1]["content"]))
@@ -70,7 +70,8 @@ async def chat():
     print("Output: ", output_tokens, "\n")
 
     # wrap the ai's response into json format
-    api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": "NymphGPT", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": input_tokens+output_tokens}, "choices": [{"message": {"role": "assistant", "content": f"\n\n{api_gen}"}, "finish_reason": "stop", "index": 0}]})
+    api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": f"{MODEL}", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": input_tokens+output_tokens}, "choices": [{"message": {"role": "assistant", "content": f"\n\n{api_gen}"}, "finish_reason": "stop", "index": 0}]})
+
 
     # delete all messages afterwards and create a new list
     messages = []

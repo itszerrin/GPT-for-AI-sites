@@ -8,13 +8,7 @@ I do not condone acts which go against the LLM provider's TOS.
 
 ## Supported Sites:
 
-[Venus Chub AI](https://venus.chub.ai)
-
-[JanitorAI](https://janitorai.com) 
-
-## About other sites:
-
-- [Harpy Chat](https://harpy.chat) Does NOT work at all. There seems to be a completely unfamiliar error occuring during generation on their end and not mine.
+- Any site which uses the ``"/chat/completions"`` route for generation
 
 ## Prerequisites
 

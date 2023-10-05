@@ -1,11 +1,14 @@
 # import all neccessary modules for the server
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from tiktoken import get_encoding # to count tokens
 
 # import the ai's chatting modules
 from modules.client import newClient
 from modules.chat import chat_gen as generate
+
+# get the modules to count tokens
+from modules.tokens.create_encoding import create_encoder
+from modules.tokens.token_counter import count_tokens
 
 # ai settings and a bunch of default variables
 MODEL = "openai:gpt-3.5-turbo" 
@@ -21,37 +24,29 @@ messages: list = [
 
 # Configuration
 SERVER_PORT = 3000
-DEBUG = False
+DEBUG = True
 HOST = '0.0.0.0'
+
+# create a token encoder (to convert strings to token counts, aka int))
+encoding = create_encoder()
+
+# create a list of jailbreak sequences
+jailbreaks: list = []
 
 # create the app
 app = Flask(__name__)
 CORS(app) # handle CORS
 
 @app.route("/chat/completions", methods=["POST"])
-async def chat():
+def chat():
 
-    global messages, TEMPERATURE, MODEL
+    global messages
 
     # create a new random client
     client = newClient()
     
-    # or else we just continue lol
+    # get the request data which was also sent over by the site
     request_data = request.get_json()
-    
-    # transfer all messages over to the empty list
-    for message in request_data.get("messages", []):
-
-        # make sure we dont get the first non-message entry (which is settings)
-        if message["role"] == "system" or "user" or "assistant":
-
-            messages.append(message)
-
-    # create the token encoder
-    encoding = get_encoding("cl100k_base")
-
-    # count input tokens (what user wrote)
-    input_tokens: int = len(encoding.encode(messages[-1]["content"]))
 
     # get new versions of each parameter (they might change at each prompt, lol)
     TEMPERATURE = request_data.get('temperature', None)
@@ -60,18 +55,38 @@ async def chat():
     PRESENCE_PENALTY = request_data.get('presence_penalty', None)
     MAX_TOKENS = request_data.get('max_tokens', None)
 
+    # get the jailbreak
+    #jailbreak: str = request_data.get("messages", [])[0]["content"]
+
+    # split the jailbreak and add each part to the list
+    #jailbreaks = jailbreak.split(".")
+
+    # add every jailbreak sequence to our messages list
+    #for jb in jailbreaks:
+
+        #print(len(jb))
+        #messages.append({"role": "system", "content": f"{jb}"})
+    
+    # transfer all messages over to the empty list
+    for message in request_data.get("messages", []):
+
+        messages.append(message)
+
+
+    # count input tokens (what user wrote)
+    input_tokens: int = count_tokens(encoding, messages[-1]["content"])
+
     # generate a response
     api_gen = generate(client, messages, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
 
     # count output tokens
-    output_tokens: int = len(encoding.encode(messages[-1]["content"]))
+    output_tokens: int = count_tokens(encoding, messages[-1]["content"])
 
     print("Input: ", input_tokens)
     print("Output: ", output_tokens, "\n")
 
     # wrap the ai's response into json format
     api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": f"{MODEL}", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": input_tokens+output_tokens}, "choices": [{"message": {"role": "assistant", "content": f"\n\n{api_gen}"}, "finish_reason": "stop", "index": 0}]})
-
 
     # delete all messages afterwards and create a new list
     messages = []

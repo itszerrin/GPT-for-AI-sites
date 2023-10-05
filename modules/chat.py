@@ -2,8 +2,6 @@
 from vercel_ai import Client
 from curl_cffi.requests.errors import RequestsError
 
-from json import dumps
-
 # generative, doesn't print
 def chat_gen(client: Client, messages: list, model: str = "openai:gpt-3.5-turbo", params: dict = {"temperature": 0.8, "maxTokens": 500}) -> str:
 

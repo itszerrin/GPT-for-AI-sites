@@ -12,7 +12,7 @@ I do not condone acts which go against the LLM provider's TOS.
 
 ## Prerequisites
 
-Python (**ONLY <=3.10 SUPPORTED**)
+Python (**ONLY 3.10 SUPPORTED**)
 
 Have unzipped the directory to a folder
 

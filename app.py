@@ -30,9 +30,6 @@ HOST = '0.0.0.0'
 # create a token encoder (to convert strings to token counts, aka int))
 encoding = create_encoder()
 
-# create a list of jailbreak sequences
-jailbreaks: list = []
-
 # create the app
 app = Flask(__name__)
 CORS(app) # handle CORS
@@ -54,18 +51,6 @@ def chat():
     FREQUENCY_PENALTY = request_data.get('frequency_penalty', None)
     PRESENCE_PENALTY = request_data.get('presence_penalty', None)
     MAX_TOKENS = request_data.get('max_tokens', None)
-
-    # get the jailbreak
-    #jailbreak: str = request_data.get("messages", [])[0]["content"]
-
-    # split the jailbreak and add each part to the list
-    #jailbreaks = jailbreak.split(".")
-
-    # add every jailbreak sequence to our messages list
-    #for jb in jailbreaks:
-
-        #print(len(jb))
-        #messages.append({"role": "system", "content": f"{jb}"})
     
     # transfer all messages over to the empty list
     for message in request_data.get("messages", []):
@@ -77,7 +62,7 @@ def chat():
     input_tokens: int = count_tokens(encoding, messages[-1]["content"])
 
     # generate a response
-    api_gen = generate(client, messages, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
+    api_gen = generate(client, messages, model=MODEL, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
 
     # count output tokens
     output_tokens: int = count_tokens(encoding, messages[-1]["content"])
@@ -86,7 +71,7 @@ def chat():
     print("Output: ", output_tokens, "\n")
 
     # wrap the ai's response into json format
-    api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": f"{MODEL}", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": input_tokens+output_tokens}, "choices": [{"message": {"role": "assistant", "content": f"\n\n{api_gen}"}, "finish_reason": "stop", "index": 0}]})
+    api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": f"{MODEL}", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": input_tokens+output_tokens}, "choices": [{"message": {"role": "assistant", "content": f"{api_gen}"}, "finish_reason": "stop", "index": 0}]})
 
     # delete all messages afterwards and create a new list
     messages = []
@@ -104,9 +89,7 @@ def root():
         {"id": "openai:gpt-3.5-turbo"},
         {"id": "openai:gpt-3.5-turbo-16k-0613"},
         {"id": "openai:gpt-3.5-turbo-16k"},
-        {"id": "openai:gpt-4"},
-        {"id": "openai:llama-2-70b-chat"},
-        {"id": "openai:gpt-4-0613"},
+        {"id": "openai:llama-2-70"},
         #{"id": "cohere:command-nightly"}, 
         #{"id": "huggingface:bigcode/santacoder"}, 
         #{"id": "huggingface:OpenAssistant/oasst-sft-1-pythia-12b"}, 

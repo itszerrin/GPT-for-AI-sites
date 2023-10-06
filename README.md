@@ -31,7 +31,7 @@ Have unzipped the directory to a folder
    
    ![CMD_SUCCESS](https://i.imgur.com/kqCpct9.jpg)
 3. In the API settings, select ``OpenAI`` and ``Reverse Proxy``
-4. Copy that URL (it's a local URl, don't worry, it's only accessible from devices in the same network and isn't public)
+4. Copy that URL (it's a local URL, don't worry, it's only accessible from devices in the same network and isn't public)
 5. Insert that URL to the AI site ([Venus Chub AI](https://venus.chub.ai) for reference)
 
    ![INSERT_URL_TO_BAR](https://i.imgur.com/o1qjELe.png)

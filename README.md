@@ -66,6 +66,8 @@ Have unzipped the directory to a folder
 
 4. The ``Chat Memory`` function does not seem to work at the moment.
 
+5. The ``Context Length`` is always at the model's max supported amount.
+
 ## Copyright
 
 Recentaly/GPT-for-AI-sites: A hosted wrapper for AI sites.

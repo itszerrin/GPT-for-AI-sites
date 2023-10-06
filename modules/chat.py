@@ -22,10 +22,6 @@ def chat_gen(client: Client, messages: list, model: str = "openai:gpt-3.5-turbo"
 
                     return chat_gen(Client(client.proxy), messages, model, params)
 
-                
-                # check if we're rate limited :sad_face_
-                #print(f"\n{chunk}\n")
-
         # append the ai's response to the message list
         messages.append({'role': 'assistant', 'content': f'{response}'})
     

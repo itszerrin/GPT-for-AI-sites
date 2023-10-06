@@ -34,6 +34,11 @@ encoding = create_encoder()
 app = Flask(__name__)
 CORS(app) # handle CORS
 
+# support for janitorai
+def switch_models(model: str):
+
+    return "openai:" + model
+
 @app.route("/chat/completions", methods=["POST"])
 def chat():
 
@@ -51,6 +56,9 @@ def chat():
     FREQUENCY_PENALTY = request_data.get('frequency_penalty', None)
     PRESENCE_PENALTY = request_data.get('presence_penalty', None)
     MAX_TOKENS = request_data.get('max_tokens', None)
+
+    # check if we need to convert model name first for janitorai support
+    if "openai" not in MODEL:   MODEL=switch_models(MODEL)
     
     # transfer all messages over to the empty list
     for message in request_data.get("messages", []):

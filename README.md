@@ -68,6 +68,8 @@ Have unzipped the directory to a folder
 
 5. The ``Context Length`` is always at the model's max supported amount.
 
+6. If you get an error about "utf-8 decoding", simply generate again. No need to restart the server.
+
 ## Copyright
 
 Recentaly/GPT-for-AI-sites: A hosted wrapper for AI sites.

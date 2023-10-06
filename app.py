@@ -10,6 +10,9 @@ from modules.chat import chat_gen as generate
 from modules.tokens.create_encoding import create_encoder
 from modules.tokens.token_counter import count_tokens
 
+# import the model switcher module 
+from modules.conv.janitorai import switch_models
+
 # ai settings and a bunch of default variables
 MODEL = "openai:gpt-3.5-turbo" 
 TEMPERATURE = 1 
@@ -33,11 +36,6 @@ encoding = create_encoder()
 # create the app
 app = Flask(__name__)
 CORS(app) # handle CORS
-
-# support for janitorai
-def switch_models(model: str):
-
-    return "openai:" + model
 
 @app.route("/chat/completions", methods=["POST"])
 def chat():

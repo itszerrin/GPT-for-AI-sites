@@ -1,5 +1,4 @@
 vercel-llm-api
 flask
-asyncio
 flask_cors
 tiktoken

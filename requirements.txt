@@ -1,4 +1,4 @@
-g4f
+vercel-llm-api
 flask
 asyncio
 flask_cors

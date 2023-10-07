@@ -60,7 +60,9 @@ Have unzipped the directory to a folder
 
 ## For mobile users
 
-Use this [google colab link](https://colab.research.google.com/drive/1-9EEf1oaEo2IT7COtBVbpE7iKmRUxcQP#scrollTo=gu9v0Iei9vE-)
+1. You dont need to install anything
+   
+2. Simply head to this [google colab link](https://colab.research.google.com/drive/1-9EEf1oaEo2IT7COtBVbpE7iKmRUxcQP#scrollTo=gu9v0Iei9vE-) (also works on pc)
 
 ## Some more information
 

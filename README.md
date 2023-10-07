@@ -58,6 +58,10 @@ Have unzipped the directory to a folder
 
  ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
 
+## For mobile users
+
+Use this [google colab link](https://colab.research.google.com/drive/1-9EEf1oaEo2IT7COtBVbpE7iKmRUxcQP#scrollTo=gu9v0Iei9vE-)
+
 ## Some more information
 
 1. This does only **partially** support the Impersonation feature
@@ -93,4 +97,5 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 Developed with [vercel_ai module](https://github.com/ading2210/vercel-llm-api)
-   
+
+

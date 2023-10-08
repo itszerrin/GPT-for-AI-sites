@@ -113,7 +113,7 @@ def models():
 @app.route("/")
 def root():
 
-    return "<h1>Your generated link works.<h1>"
+    return f"<h1>Your generated link works.<h1><br><br><h2>Your selected model is: {MODEL} and a total {len(messages} messages were sent"
 
 # run the code and host the server lol
 if __name__ == "__main__":

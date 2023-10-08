@@ -87,7 +87,7 @@ def chat():
 
 # handler for model fetching
 @app.route("/models")
-def root():
+def models():
 
     # return a list of our models
     return jsonify(
@@ -108,6 +108,12 @@ def root():
         #{"id": "openai:text-davinci-003"},
         #{"id": "huggingface:google/flan-t5-xxl"},
     ]}), 200
+
+# the root (for google colab)
+@app.route("/")
+def root():
+
+    return "Your generated link works."
 
 # run the code and host the server lol
 if __name__ == "__main__":

@@ -102,7 +102,7 @@ def models():
         #{"id": "huggingface:OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5"}, 
         #{"id": "huggingface:EleutherAI/gpt-neox-20b"},
         #{"id": "replicate:a16z-infra/llama7b-v2-chat"},
-       # {"id": "replicate:a16z-infra/llama13b-v2-chat"},
+        #{"id": "replicate:a16z-infra/llama13b-v2-chat"},
         #{"id": "replicate:a16z-infra/llama70b-v2-chat"},
         #{"id": "huggingface:bigscience/bloom"},
         #{"id": "openai:text-davinci-003"},
@@ -113,7 +113,7 @@ def models():
 @app.route("/")
 def root():
 
-    return "<h1>Your generated link works.</h1>"
+    return "<h1>Your generated link works. Use it as a reverse proxy.</h1>"
 
 # run the code and host the server lol
 if __name__ == "__main__":

@@ -14,7 +14,8 @@ from modules.tokens.token_counter import count_tokens
 from modules.conv.janitorai import switch_models
 
 # ai settings and a bunch of default variables
-MODEL = "openai:gpt-3.5-turbo" 
+#MODEL = "openai:gpt-3.5-turbo" 
+MODEL = "replicate:stability-ai/stablelm-tuned-alpha-7b"
 TEMPERATURE = 1 
 FREQUENCY_PENALTY = 0.85
 PRESENCE_PENALTY = 0.85
@@ -67,6 +68,7 @@ def chat():
     # count input tokens (what user wrote)
     input_tokens: int = count_tokens(encoding, messages[-1]["content"])
 
+    print(MODEL)
     # generate a response
     api_gen = generate(client, messages, model=MODEL, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
 

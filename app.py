@@ -13,6 +13,9 @@ from modules.tokens.token_counter import count_tokens
 # import the model switcher module 
 from modules.conv.janitorai import switch_models
 
+# import the global server host from cloudflare
+from flask_cloudflared import run_with_cloudflare
+
 # ai settings and a bunch of default variables
 MODEL = "openai:gpt-3.5-turbo" 
 TEMPERATURE = 1 
@@ -36,6 +39,9 @@ encoding = create_encoder()
 # create the app
 app = Flask(__name__)
 CORS(app) # handle CORS
+
+# start global server
+run_with_cloudflared(app)
 
 @app.route("/chat/completions", methods=["POST"])
 def chat():

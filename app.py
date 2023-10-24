@@ -122,5 +122,5 @@ def root():
 # run the code and host the server lol
 if __name__ == "__main__":
 
-    app.run(port=SERVER_PORT, debug=DEBUG, host=HOST)
     run_with_cloudflared(app)
+    app.run(port=SERVER_PORT, debug=DEBUG, host=HOST)

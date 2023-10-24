@@ -14,7 +14,7 @@ from modules.tokens.token_counter import count_tokens
 from modules.conv.janitorai import switch_models
 
 # import the global server host from cloudflare
-from flask_cloudflared import run_with_cloudflare
+from flask_cloudflared import run_with_cloudflared
 
 # ai settings and a bunch of default variables
 MODEL = "openai:gpt-3.5-turbo" 

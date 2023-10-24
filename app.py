@@ -40,9 +40,7 @@ encoding = create_encoder()
 app = Flask(__name__)
 CORS(app) # handle CORS
 
-# start global server
-run_with_cloudflared(app)
-
+# method for chat completions
 @app.route("/chat/completions", methods=["POST"])
 def chat():
 
@@ -125,3 +123,4 @@ def root():
 if __name__ == "__main__":
 
     app.run(port=SERVER_PORT, debug=DEBUG, host=HOST)
+    run_with_cloudflared(app)

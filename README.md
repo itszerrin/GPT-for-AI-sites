@@ -2,8 +2,6 @@
 
 ## Brief introduction
 
-**10/23/2023: Currently not working ⚠️**
-
 This application uses LLM wrappers but uses Flask to host the LLM locally and make it usable within other AI sites.
 
 I do not condone acts which go against the LLM provider's TOS.

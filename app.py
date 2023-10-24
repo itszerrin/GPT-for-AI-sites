@@ -71,7 +71,7 @@ def chat():
 
 
     # count input tokens (what user wrote)
-    input_tokens: int = count_tokens(encoding, messages[-1]["content"]
+    input_tokens: int = count_tokens(encoding, messages[-1]["content"])
     
     # generate a response
     api_gen = generate(client, messages, model=MODEL, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})

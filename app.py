@@ -29,7 +29,7 @@ messages: list = [
 ]
 
 # Configuration
-SERVER_PORT = 3000
+SERVER_PORT = 5000
 DEBUG = True
 HOST = '0.0.0.0'
 

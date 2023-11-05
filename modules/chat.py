@@ -1,36 +1,23 @@
 # only necessary imports
-from vercel_ai import Client
-from curl_cffi.requests.errors import RequestsError
+from g4f import ChatCompletion
 
 # generative, doesn't print
-def chat_gen(client: Client, messages: list, model: str = "openai:gpt-3.5-turbo", params: dict = {"temperature": 0.8, "maxTokens": 500}) -> str:
+def chat_gen(model: str, messages: list) -> str:
 
-    response: str = ""
+    # send a request to the api
+    response = ChatCompletion.create(
+        model=model,
+        messages=messages,
+        stream=True, # streaming support coming soon
+    )
 
-    try:
+    # add the ai's response to the current list of messages
+    messages.append({"role": "assistant", "content": f"{response}"})
 
-        for chunk in client.chat(model, messages, params):
+    # return the generated response
+    return response
 
-            # just make sure we dont process the returned error lol
-            if chunk != 'Internal Server Error':
-            
-                if "help.openai.com" not in chunk:
 
-                    response += chunk
-
-                else:
-
-                    return chat_gen(Client(client.proxy), messages, model, params)
-
-        # append the ai's response to the message list
-        messages.append({'role': 'assistant', 'content': f'{response}'})
-    
-        return response
-
-    # error-driven recursive call
-    except RequestsError:
-
-        return chat_gen(client, messages, params=params, model=model)
 
 
 

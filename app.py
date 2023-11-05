@@ -2,22 +2,18 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-# import the ai's chatting modules
-from modules.client import newClient
+# import the ai's chatting module
 from modules.chat import chat_gen as generate
 
 # get the modules to count tokens
 from modules.tokens.create_encoding import create_encoder
 from modules.tokens.token_counter import count_tokens
 
-# import the model switcher module 
-from modules.conv.janitorai import switch_models
-
 # import the global server host from cloudflare
 from flask_cloudflared import run_with_cloudflared
 
 # ai settings and a bunch of default variables
-MODEL = "openai:gpt-3.5-turbo" 
+MODEL = "gpt-3.5-turbo" 
 TEMPERATURE = 1 
 FREQUENCY_PENALTY = 0.85
 PRESENCE_PENALTY = 0.85
@@ -44,10 +40,8 @@ CORS(app) # handle CORS
 @app.route("/chat/completions", methods=["POST"])
 def chat():
 
+    # make the messages accessible in a bigger scope
     global messages
-
-    # create a new random client
-    client = newClient()
     
     # get the request data which was also sent over by the site
     request_data = request.get_json()
@@ -58,9 +52,6 @@ def chat():
     FREQUENCY_PENALTY = request_data.get('frequency_penalty', None)
     PRESENCE_PENALTY = request_data.get('presence_penalty', None)
     MAX_TOKENS = request_data.get('max_tokens', None)
-
-    # check if we need to convert model name first for janitorai support
-    if "openai" not in MODEL:   MODEL=switch_models(MODEL)
     
     # transfer all messages over to the empty list
     for message in request_data.get("messages", []):
@@ -72,16 +63,20 @@ def chat():
     input_tokens: int = count_tokens(encoding, messages[-1]["content"])
     
     # generate a response
-    api_gen = generate(client, messages, model=MODEL, params={"temperature": TEMPERATURE, "maxTokens": MAX_TOKENS, "presencePenalty": PRESENCE_PENALTY, "frequencyPenalty": FREQUENCY_PENALTY})
+    generate(MODEL, messages)
 
     # count output tokens
     output_tokens: int = count_tokens(encoding, messages[-1]["content"])
 
-    print("Input: ", input_tokens)
-    print("Output: ", output_tokens, "\n")
+    # calculate total tokens
+    total_tokens: int = input_tokens + output_tokens
 
-    # wrap the ai's response into json format
-    api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": f"{MODEL}", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": input_tokens+output_tokens}, "choices": [{"message": {"role": "assistant", "content": f"{api_gen}"}, "finish_reason": "stop", "index": 0}]})
+    # log (for developing purposes)
+    print()
+    app.logger.info(f" Model {MODEL} got {input_tokens} and generated {output_tokens}")
+
+    # wrap the ai's response into a generic json format
+    api_response = jsonify({"id": "chatcmpl-abc123", "object": "chat.completion", "created": 1677858242, "model": f"{MODEL}", "usage": {"prompt_tokens": input_tokens, "completion_tokens": output_tokens, "total_tokens": total_tokens}, "choices": [{"message": messages[-1], "finish_reason": "stop", "index": 0}]})
 
     # delete all messages afterwards and create a new list
     messages = []
@@ -96,27 +91,19 @@ def models():
     # return a list of our models
     return jsonify(
     {"data": [
-        {"id": "openai:gpt-3.5-turbo"},
-        {"id": "openai:gpt-3.5-turbo-16k-0613"},
-        {"id": "openai:gpt-3.5-turbo-16k"},
-        #{"id": "openai:llama-2-70"},
-        #{"id": "cohere:command-nightly"}, 
-        #{"id": "huggingface:bigcode/santacoder"}, 
-        #{"id": "huggingface:OpenAssistant/oasst-sft-1-pythia-12b"}, 
-        #{"id": "huggingface:OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5"}, 
-        #{"id": "huggingface:EleutherAI/gpt-neox-20b"},
-        #{"id": "replicate:a16z-infra/llama7b-v2-chat"},
-        #{"id": "replicate:a16z-infra/llama13b-v2-chat"},
-        #{"id": "replicate:a16z-infra/llama70b-v2-chat"},
-        #{"id": "huggingface:bigscience/bloom"},
-        #{"id": "openai:text-davinci-003"},
-        #{"id": "huggingface:google/flan-t5-xxl"},
+
+        {"id": "gpt-4"},
+        {"id": "gpt-3.5-turbo"},
+        {"id": "gpt-3.5-turbo-16k"},
+        {"id": "gpt-3.5-turbo-0316"},
+        {"id": "gpt-3.5-turbo-0613"},
     ]}), 200
 
-# the root (for google colab)
+# the root (for google colab, not needed to access)
 @app.route("/")
 def root():
 
+    # return a string if the link does work
     return "<h1>Your generated link works. Use it as a reverse proxy.</h1>"
 
 # run the code and host the server lol

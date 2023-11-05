@@ -95,7 +95,8 @@ def models():
         {"id": "gpt-4"},
         {"id": "gpt-3.5-turbo"},
         {"id": "gpt-3.5-turbo-16k"},
-        {"id": "gpt-3.5-turbo-0316"},
+        {"id": "gpt-3.5-turbo-16k-0613"},
+        {"id": "gpt-3.5-turbo-0301"},
         {"id": "gpt-3.5-turbo-0613"},
     ]}), 200
 

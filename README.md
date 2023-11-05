@@ -72,7 +72,7 @@ Have unzipped the directory to a folder
 
 3. This supports **Venus Chub's** group chat feature.
 
-4. I have no influence over the ``vercel_ai`` module and any errors that occur from it are unfixable by me.
+4. I have no influence over the ``gpt4free`` module and any errors that occur from it are unfixable by me.
 
 5. The ``Chat Memory`` function does not seem to work at the moment.
 
@@ -80,6 +80,8 @@ Have unzipped the directory to a folder
 
 7. If you get an error about "utf-8 decoding", simply generate again. No need to restart the server.
 
+8. Settings are **not** customizable (temperature, etc..)
+   
 ## Copyright
 
 Recentaly/GPT-for-AI-sites: A hosted wrapper for AI sites.
@@ -98,6 +100,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-Developed with [vercel_ai module](https://github.com/ading2210/vercel-llm-api)
+Developed with [gpt4free module](https://github.com/xtekky/gpt4free)
 
 

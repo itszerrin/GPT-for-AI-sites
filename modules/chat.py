@@ -8,7 +8,7 @@ def chat_gen(model: str, messages: list) -> str:
     response = ChatCompletion.create(
         model=model,
         messages=messages,
-        stream=True, # streaming support coming soon
+        stream=False, # streaming support coming soon
     )
 
     # add the ai's response to the current list of messages

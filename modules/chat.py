@@ -1,5 +1,5 @@
 # only necessary imports
-from g4f import ChatCompletion, Provider
+from g4f import ChatCompletion
 
 # generative, doesn't print
 def chat_gen(model: str, messages: list) -> str:
@@ -10,7 +10,6 @@ def chat_gen(model: str, messages: list) -> str:
         
         # send a request to the api
         response = ChatCompletion.create(
-            provider=Provider.Liaobots,
             model=model,
             messages=messages,
             stream=False, # streaming support coming soon

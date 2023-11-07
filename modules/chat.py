@@ -4,12 +4,21 @@ from g4f import ChatCompletion
 # generative, doesn't print
 def chat_gen(model: str, messages: list) -> str:
 
-    # send a request to the api
-    response = ChatCompletion.create(
-        model=model,
-        messages=messages,
-        stream=False, # streaming support coming soon
-    )
+    
+    # try statement due to a common error
+    try:
+        
+        # send a request to the api
+        response = ChatCompletion.create(
+            model=model,
+            messages=messages,
+            stream=False, # streaming support coming soon
+        )
+
+    # common issue with gpt-3.5-turbo-16k model
+    except RuntimeError:
+
+        return chat_gen(model=MODEL, messages=MESSAGES
 
     # add the ai's response to the current list of messages
     messages.append({"role": "assistant", "content": f"{response}"})

@@ -92,7 +92,7 @@ def models():
     return jsonify(
     {"data": [
 
-        {"id": "gpt-4"},
+        #{"id": "gpt-4"}, # not working
         {"id": "gpt-3.5-turbo"},
         {"id": "gpt-3.5-turbo-16k"},
         {"id": "gpt-3.5-turbo-16k-0613"},

@@ -12,7 +12,7 @@ def chat_gen(model: str, messages: list) -> str:
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.AItianhu,
+            provider=Provider.OpenaiChat,
             stream=False, # streaming support coming soon
         )
 

@@ -1,5 +1,5 @@
 # only necessary imports
-from g4f import ChatCompletion, Provider
+from g4f import ChatCompletion
 
 # generative, doesn't print
 def chat_gen(model: str, messages: list) -> str:
@@ -12,7 +12,6 @@ def chat_gen(model: str, messages: list) -> str:
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.You,
             stream=False, # streaming support coming soon
         )
 

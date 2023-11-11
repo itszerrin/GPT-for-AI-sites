@@ -2,6 +2,8 @@
 from g4f import ChatCompletion, Provider, models
 from aiohttp.client_exceptions import ClientResponseError
 
+import logging
+
 # generative, doesn't print
 def chat_gen(model: str, messages: list) -> str:
 
@@ -18,13 +20,11 @@ def chat_gen(model: str, messages: list) -> str:
         )
 
     # common issue with gpt-3.5-turbo-16k model
-    except RuntimeError:
+    except:
 
+        logging.error("An error occured, retrying")
         return chat_gen(model, messages)
 
-    except ClientResponeError:
-
-        return chat_gen(model, messages)
 
     # add the ai's response to the current list of messages
     messages.append({"role": "assistant", "content": f"{response}"})

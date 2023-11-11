@@ -97,6 +97,7 @@ def models():
         {"id": "gpt-3.5-turbo-16k"},
         {"id": "gpt-3.5-turbo-16k-0613"},
         {"id": "gpt-3.5-turbo-0613"},
+        {"id:": "llama2_70b"},
     ]}), 200
 
 # the root (for google colab, not needed to access)

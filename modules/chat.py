@@ -13,7 +13,7 @@ def chat_gen(model: str, messages: list) -> str:
         
         # send a request to the api
         response = ChatCompletion.create(
-            model=models.‎llama_13b,
+            model=models.llama_13b,
             provider=Provider.H2o,
             messages=messages,
             stream=False, # streaming support coming soon

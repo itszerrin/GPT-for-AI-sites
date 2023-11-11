@@ -13,7 +13,7 @@ def chat_gen(model: str, messages: list) -> str:
         
         # send a request to the api
         response = ChatCompletion.create(
-            model=models.llama2_70b,
+            model="llama70b_v2_chat",
             provider=Provider.Vercel,
             messages=messages,
             stream=False, # streaming support coming soon

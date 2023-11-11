@@ -11,7 +11,7 @@ def chat_gen(model: str, messages: list) -> str:
         # send a request to the api
         response = ChatCompletion.create(
             model=model,
-            provider=Provider.Aiask,
+            provider=Provider.Aichat,
             messages=messages,
             stream=False, # streaming support coming soon
         )

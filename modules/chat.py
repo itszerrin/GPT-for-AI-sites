@@ -1,5 +1,6 @@
 # only necessary imports
 from g4f import ChatCompletion, Provider, models
+from aiohttp.client_exceptions import ClientResponseError
 
 # generative, doesn't print
 def chat_gen(model: str, messages: list) -> str:
@@ -18,6 +19,10 @@ def chat_gen(model: str, messages: list) -> str:
 
     # common issue with gpt-3.5-turbo-16k model
     except RuntimeError:
+
+        return chat_gen(model, messages)
+
+    except ClientResponeError:
 
         return chat_gen(model, messages)
 

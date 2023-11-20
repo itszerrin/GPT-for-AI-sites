@@ -15,7 +15,7 @@ def chat_gen(model: str, messages: list) -> str:
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=ChatgptDemoAi,
+            provider=Provider.ChatgptDemoAi,
             stream=False, # streaming support coming soon
         )
 

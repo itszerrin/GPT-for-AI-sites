@@ -15,7 +15,7 @@ def chat_gen(model: str, messages: list) -> str:
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.GeekGpt,
+            provider=Provider.ChatAnywhere,
             stream=False, # streaming support coming soon
         )
 

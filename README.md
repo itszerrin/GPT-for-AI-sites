@@ -48,9 +48,7 @@ Have unzipped the directory to a folder
 
 ## Choosing a model
 
-1. Thanks to the [vercel_ai module](https://github.com/ading2210/vercel-llm-api), you may use any model for ***free.***
-
-2. Select either model from the list: ![CHOOSE_MODEL_GPT](https://i.imgur.com/ePKD0lR.png)
+1. Select either model from the list: ![CHOOSE_MODEL_GPT](https://i.imgur.com/ePKD0lR.png)
 
 ## Finalize
 
@@ -73,8 +71,6 @@ Have unzipped the directory to a folder
 3. I have no influence over the ``gpt4free`` module and any errors that occur from it are unfixable by me.
 
 4. The ``Chat Memory`` function does not seem to work at the moment.
-
-5. If you get an error about "utf-8 decoding", simply generate again. No need to restart the server.
 
    
 ## Copyright

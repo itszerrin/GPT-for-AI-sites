@@ -50,17 +50,26 @@ Have unzipped the directory to a folder
 
 1. Select either model from the list: ![CHOOSE_MODEL_GPT](https://i.imgur.com/ePKD0lR.png)
 
+## Google colab
+
+<table>
+  <tr>
+     <td>
+       <p align="center"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/800px-Google_Colaboratory_SVG_Logo.svg.png" width="80%"></img>
+    </td>
+    <td> 
+      <img src="https://img.shields.io/badge/Google_Colab-orange"/> <br> 
+<a href="https://colab.research.google.com/drive/1WIHWe2w_i-Lg2efd7jLIWEN_319017rJ?usp=sharing">Also hosted on google colab</a>.<img width=2300/>
+    </td>
+  </tr>
+</table>
+
+
 ## Finalize
 
 1. Once you've chosen a model, scroll down and press ``Save Settings``
 
  ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
-
-## For mobile users
-
-1. You dont need to install anything
-   
-2. Simply head to this [google colab link](https://colab.research.google.com/drive/1WIHWe2w_i-Lg2efd7jLIWEN_319017rJ?usp=sharing) (also works on pc)
 
 ## Some more information
 

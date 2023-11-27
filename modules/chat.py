@@ -1,11 +1,11 @@
 # only necessary imports
-from g4f import ChatCompletion, Provider, models
+from g4f import ChatCompletion, Provider
 from aiohttp.client_exceptions import ClientResponseError
 
 import logging
 
 # generative, doesn't print
-def chat_gen(model: str, messages: list) -> str:
+def chat_gen(model: str, messages: list, params: dict = {"temperature": 0.7, "top_p": 1, "frequency_penalty": 0, "presence_penalty": 0}) -> str:
 
     
     # try statement due to a common error
@@ -16,10 +16,15 @@ def chat_gen(model: str, messages: list) -> str:
             model=model,
             messages=messages,
             provider=Provider.GeekGpt,
-            stream=False, # streaming support coming soon
+            stream=False,
+
+            temperature=params["temperature"],
+            top_p=params["top_p"],
+            frequency_penalty=params["frequency_penalty"],
+            presence_penalty=params["presence_penalty"]
         )
 
-    # common issue with gpt-3.5-turbo-16k model
+    # common issues (brute-forcing a response usually works)
     except:
 
         logging.error("An error occured, retrying")

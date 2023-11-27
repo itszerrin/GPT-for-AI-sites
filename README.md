@@ -66,21 +66,16 @@ Have unzipped the directory to a folder
 
 ## Some more information
 
-1. This does only **partially** support the Impersonation feature
+1. No, this does not utilize your pc's resources as a LLM.
 
-2. No, this does not utilize your pc's resources as a LLM.
+2. This supports **Venus Chub's** group chat feature.
 
-3. This supports **Venus Chub's** group chat feature.
+3. I have no influence over the ``gpt4free`` module and any errors that occur from it are unfixable by me.
 
-4. I have no influence over the ``gpt4free`` module and any errors that occur from it are unfixable by me.
+4. The ``Chat Memory`` function does not seem to work at the moment.
 
-5. The ``Chat Memory`` function does not seem to work at the moment.
+5. If you get an error about "utf-8 decoding", simply generate again. No need to restart the server.
 
-6. The ``Context Length`` is always at the model's max supported amount.
-
-7. If you get an error about "utf-8 decoding", simply generate again. No need to restart the server.
-
-8. Settings are **not** customizable (temperature, etc..)
    
 ## Copyright
 

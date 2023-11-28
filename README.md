@@ -1,105 +1,57 @@
-# GPT generation client for AI sites
+# GPT Generation Client for AI Integration
 
-## Brief introduction
+## Overview
 
-This application uses LLM wrappers but uses Flask to host the LLM locally & globally and make it usable within other AI sites.
+This application facilitates seamless integration of GPT language models (LLM) into various AI sites by utilizing Flask to host the LLM locally and globally. The implementation involves LLM wrappers, ensuring compatibility with any site using the "/chat/completions" route for text generation. It is essential to adhere to the terms of service of the LLM provider. Usable as a free OpenAI reverse proxy.
 
-I do not condone acts which go against the LLM provider's TOS.
+## Supported Sites
 
-## Supported Sites:
-
-- Any site which uses the ``"/chat/completions"`` route for generation
+The application supports integration with any site employing the "/chat/completions" route for text generation.
 
 ## Prerequisites
 
-Python (**ONLY 3.10 SUPPORTED**)
+- Python 3.10
+- Unzipped directory
 
-Have unzipped the directory to a folder
+## Installation
 
-## Installation of Modules
+1. Run the `install_requirements.bat` file for automatic installation or execute `pip3.10 install -r requirements.txt` in the command prompt in the application directory.
 
-1. Run the ``install_requirements.bat`` file. This will auto-install everything for you. (simply double-click it)
+## Running the Server
 
-2. Alternatively, open ``cmd.exe`` in the directory where all the files are and write ``pip3.10 install -r requirements.txt``
-   
-   ![INSTALL_MODULES_CMD](https://i.imgur.com/HiIIOQN.jpg)
-
-## Running the server
-
-1. After the modules are installed, double click the ```app.py``` file.
-
-2. Alternatively, you can double click the ``start.bat`` file to run the server.
-3. The cmd should look something like this if everything works:
-   
-   ![CMD_SUCCESS](https://i.imgur.com/kqCpct9.jpg)
-4. In the API settings, select ``OpenAI`` and ``Reverse Proxy``
-5. Copy that URL (it's a local URL, don't worry, it's only accessible from devices in the same network and isn't public)
-6. Insert that URL to the AI site ([Venus Chub AI](https://venus.chub.ai) for reference)
-
-   ![INSERT_URL_TO_BAR](https://i.imgur.com/o1qjELe.png)
+1. After installation, launch the server by double-clicking the `app.py` file or using the `start.bat` file.
+2. Ensure successful server initiation by checking the command prompt for the indicated success message.
+3. In the API settings, select "OpenAI" and "Reverse Proxy."
+4. Copy the local URL for use on the AI site.
 
 ## Check Proxy
 
-1. If your settings look alike, press the ``"Check Proxy"`` button. ![CHECK_PROXY_BUTTON](https://i.imgur.com/7L2KqfN.jpg)
+1. Verify your settings and press the "Check Proxy" button.
+2. A successful check will be indicated by a green checkmark.
 
-2. If everything worked, you should get a green checkmark.
+## Choosing a Model
 
- ![GREEN_CHECKMARK](https://i.imgur.com/RPlhFQZ.png)
+1. Select a model from the provided list.
 
-## Choosing a model
+## Google Colab Integration
 
-1. Select either model from the list: ![CHOOSE_MODEL_GPT](https://i.imgur.com/ePKD0lR.png)
+This application is also compatible with Google Colab. [Access the hosted version on Google Colab here](https://colab.research.google.com/drive/1WIHWe2w_i-Lg2efd7jLIWEN_319017rJ?usp=sharing).
 
-## Google colab
+## Finalizing Settings
 
-<table>
-  <tr>
-     <td>
-       <p align="center"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/800px-Google_Colaboratory_SVG_Logo.svg.png" width="80%"></img>
-    </td>
-    <td> 
-      <img src="https://img.shields.io/badge/Google_Colab-orange"/> <br> 
-<a href="https://colab.research.google.com/drive/1WIHWe2w_i-Lg2efd7jLIWEN_319017rJ?usp=sharing">Also hosted on google colab</a>.<img width=2300/>
-    </td>
-  </tr>
-</table>
+1. After choosing a model, scroll down and press "Save Settings."
 
+## Additional Information
 
-## Finalize
+1. This application does not utilize the resources of the user's PC as a language model.
+3. The `gpt4free` module is used in the development, and any errors related to it are beyond the control of the developer.
+4. The "Chat Memory" function is currently non-functional.
 
-1. Once you've chosen a model, scroll down and press ``Save Settings``
-
- ![SAVE_SETTINGS](https://i.imgur.com/GKxpx5y.jpg)
-
-## Some more information
-
-1. No, this does not utilize your pc's resources as a LLM.
-
-2. This supports **Venus Chub's** group chat feature.
-
-3. I have no influence over the ``gpt4free`` module and any errors that occur from it are unfixable by me.
-
-4. The ``Chat Memory`` function does not seem to work at the moment.
-
-   
 ## Copyright
 
-Recentaly/GPT-for-AI-sites: A hosted wrapper for AI sites.
+**GPT Generation Client for AI Sites:** A hosted wrapper for AI sites.
 Copyright (C) 2023 Recentaly
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This program is distributed under the terms of the GNU General Public License as published by the Free Software Foundation. For details, refer to [GNU General Public License](https://www.gnu.org/licenses/).
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-Developed with [gpt4free module](https://github.com/xtekky/gpt4free)
-
-
+Developed with [gpt4free module](https://github.com/xtekky/gpt4free).

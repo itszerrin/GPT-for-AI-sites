@@ -21,25 +21,10 @@ The application supports integration with any site employing the "/chat/completi
 
 1. After installation, launch the server by double-clicking the `app.py` file or using the `start.bat` file.
 2. Ensure successful server initiation by checking the command prompt for the indicated success message.
-3. In the API settings, select "OpenAI" and "Reverse Proxy."
-4. Copy the local URL for use on the AI site.
-
-## Check Proxy
-
-1. Verify your settings and press the "Check Proxy" button.
-2. A successful check will be indicated by a green checkmark.
-
-## Choosing a Model
-
-1. Select a model from the provided list.
 
 ## Google Colab Integration
 
 This application is also compatible with Google Colab. [Access the hosted version on Google Colab here](https://colab.research.google.com/drive/1WIHWe2w_i-Lg2efd7jLIWEN_319017rJ?usp=sharing).
-
-## Finalizing Settings
-
-1. After choosing a model, scroll down and press "Save Settings."
 
 ## Additional Information
 

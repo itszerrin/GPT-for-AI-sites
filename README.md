@@ -30,7 +30,6 @@ This application is also compatible with Google Colab. [Access the hosted versio
 
 1. This application does not utilize the resources of the user's PC as a language model.
 3. The `gpt4free` module is used in the development, and any errors related to it are beyond the control of the developer.
-4. The "Chat Memory" function is currently non-functional.
 
 ## Copyright
 

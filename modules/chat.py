@@ -1,6 +1,5 @@
 # only necessary imports
 from g4f import ChatCompletion, Provider
-from aiohttp.client_exceptions import ClientResponseError
 
 # to convert and read from json
 import json
@@ -18,7 +17,7 @@ def chat_gen(model: str, messages: list, params: dict = {"temperature": 0.7, "to
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.GeekGpt,
+            #provider=Provider.GeekGpt,
             stream=False,
 
             temperature=params["temperature"],
@@ -50,7 +49,7 @@ def stream(model: str, messages: list, params: dict = {"temperature": 0.7, "top_
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.GeekGpt,
+            #provider=Provider.GeekGpt,
             stream=True,
 
             temperature=params["temperature"],
@@ -64,7 +63,6 @@ def stream(model: str, messages: list, params: dict = {"temperature": 0.7, "top_
 
         logging.error("An error occured, retrying")
         return stream(model, messages)
-
 
     # add the ai's response to the current list of messages
     messages.append({"role": "assistant", "content": f"{response}"})

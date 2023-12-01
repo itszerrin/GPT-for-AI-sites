@@ -17,7 +17,7 @@ def chat_gen(model: str, messages: list, params: dict = {"temperature": 0.7, "to
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.GptGo,
+            provider=Provider.FreeGpt,
             stream=False,
 
             temperature=params["temperature"],

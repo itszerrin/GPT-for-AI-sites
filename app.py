@@ -1,9 +1,10 @@
 # import all neccessary modules for the server
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response, make_response
 from flask_cors import CORS
 
-# import the ai's chatting module
+# import the ai's chatting modules
 from modules.chat import chat_gen as generate
+from modules.chat import stream as stream
 
 # get the modules to count tokens
 from modules.tokens.create_encoding import create_encoder
@@ -17,6 +18,9 @@ from flask_cloudflared import run_with_cloudflared
 
 # logging module to keep track of info
 import logging
+
+# json module
+import json
 
 # ai settings and a bunch of default variables
 MODEL = "gpt-3.5-turbo" 
@@ -53,6 +57,16 @@ def chat():
 
     # make the messages accessible in a bigger scope
     global messages
+
+    def streaming():
+
+        logger.info("\nStreaming requested...\n")
+
+        for chunk in stream(MODEL, messages, params):
+
+            yield b'data: ' + str((chunk)).encode() + b'\n\n'
+
+        yield b'data: [DONE]'
     
     # get the request data which was also sent over by the site
     request_data = request.get_json()
@@ -67,7 +81,7 @@ def chat():
 
     # compile parameters to a dict
     params: dict = {"temperature": TEMPERATURE, "frequency_penalty": FREQUENCY_PENALTY, "presence_penalty": PRESENCE_PENALTY, "max_tokens": MAX_TOKENS, "top_p": TOP_P}
-    
+
     # transfer all messages over to the empty list
     for message in request_data.get("messages", []):
 
@@ -75,9 +89,15 @@ def chat():
 
     # count input tokens (what user wrote)
     input_tokens: int = count_tokens(encoding, messages[-1]["content"])
-    
+
     # generate a response
-    generate(MODEL, messages, params=params)
+    if request_data.get("stream", None) == False:
+
+        generate(MODEL, messages, params)
+
+    else:
+
+        return Response(streaming(), mimetype='text/event-stream')
 
     # count output tokens
     output_tokens: int = count_tokens(encoding, messages[-1]["content"])

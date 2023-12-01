@@ -49,7 +49,7 @@ def stream(model: str, messages: list, params: dict = {"temperature": 0.7, "top_
         response = ChatCompletion.create(
             model=model,
             messages=messages,
-            provider=Provider.GptGo,
+            provider=Provider.FreeGpt,
             stream=True,
 
             temperature=params["temperature"],

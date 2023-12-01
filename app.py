@@ -19,8 +19,8 @@ from flask_cloudflared import run_with_cloudflared
 # logging module to keep track of info
 import logging
 
-# json module
-import json
+# time module (to delay execution)
+import time
 
 # ai settings and a bunch of default variables
 MODEL = "gpt-3.5-turbo" 
@@ -62,12 +62,24 @@ def chat():
 
         logger.info("\nStreaming requested...\n")
 
-        for chunk in stream(MODEL, messages, params):
+        while True:
 
-            yield b'data: ' + str((chunk)).encode() + b'\n\n'
+            try:
+
+                for chunk in stream(MODEL, messages, params):
+
+                    yield b'data: ' + str((chunk)).encode() + b'\n\n'
+
+                break
+
+            except Exception as e:
+
+                logger.error(f"Error occurred: {str(e)}")
+                time.sleep(1)
+                continue
 
         yield b'data: [DONE]'
-    
+
     # get the request data which was also sent over by the site
     request_data = request.get_json()
 

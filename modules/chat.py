@@ -18,7 +18,7 @@ def chat_gen(model: str, messages: list, params: dict = {"temperature": 0.7, "to
             model=model,
             messages=messages,
             stream=False,
-            provider=Provider.Gpt6,
+            provider=Provider.You,
 
             temperature=params["temperature"],
             top_p=params["top_p"],
@@ -50,6 +50,7 @@ def stream(model: str, messages: list, params: dict = {"temperature": 0.7, "top_
             model=model,
             messages=messages,
             stream=True,
+            provider=Provider.You,
 
             temperature=params["temperature"],
             top_p=params["top_p"],
